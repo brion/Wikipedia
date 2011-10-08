@@ -44,12 +44,16 @@ function onSearchButton()
 
 function showProgressLoader(title, message)
 {
-	PhoneGap.exec(null, null, "IndeterminateProgress", "progressStart", [title, message]);
+	//PhoneGap.exec(null, null, "IndeterminateProgress", "progressStart", [title, message]);
+	$('#search').hide();
+	$('#spinner').show();
 }
 
 function hideProgressLoader()
 {
-	PhoneGap.exec(null, null, "IndeterminateProgress", "progressStop", []);
+	//PhoneGap.exec(null, null, "IndeterminateProgress", "progressStop", []);
+	$('#spinner').hide();
+	$('#search').show();
 }
 
 function hideMobileLinks()

@@ -102,11 +102,18 @@ header
 	right:5px;
 }
 
-#search
+#search,
+#spinner
 {
 	position:relative;
 	top:5px;
 	padding-left:8px;
+}
+
+#search
+{
+	/* Will swap in for the spinner when done loading */
+	display: none;
 }
 
 #searchParam
