@@ -76,6 +76,27 @@ function hideMobileLinks() {
         // both with the stock browser and Firefox as user's default browser
         document.location = target;
     });
+    
+    // Magic for selection
+    var holdTimer;
+    var cancelTimer = function() {
+    	if (holdTimer) {
+    		window.clearTimeout(holdTimer);
+    		holdTimer = null;
+    	}
+    };
+    $('body', frameDoc).bind('touchstart', function(event) {
+    	holdTimer = window.setTimeout(function() {
+    		holdTimer = null;
+    		selectText();
+    	}, 500);
+    }).bind('touchmove', function(event) {
+    	if (event.originalEvent.changedTouches) {
+	    	cancelTimer();
+	    }
+    }).bind('touchend', function(event) {
+    	cancelTimer();
+    });
 }
 
 function iframeOnLoaded(iframe) {
