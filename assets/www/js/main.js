@@ -15,6 +15,9 @@ function onDeviceReady() {
     // it only seems to recognize the style when dynamically set here or when set inline...
     // the style needs to be explicitly set for logic used in the backButton handler
     $('#content').css('display', 'block');
+    $('#content iframe')
+    	.attr('width', $('#content').width())
+    	.attr('height', $('#content').height());
 
     document.addEventListener("backbutton", onBackButton, false);
     document.addEventListener("searchbutton", onSearchButton, false);
