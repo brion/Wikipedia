@@ -64,8 +64,8 @@ public class AppMenu extends Plugin {
 		PluginResult goodResult = updateMenu(args);
 		if(android.os.Build.VERSION.RELEASE.startsWith("3."))
     	{
-    		appMenu = ctx.dMenu;
-    		buildHoneycombMenu(appMenu);
+    		//appMenu = ctx.dMenu;
+    		//buildHoneycombMenu(appMenu);
     	}
 		//We should do something here if Honeycomb fails!
 		return goodResult;
