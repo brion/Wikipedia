@@ -51,7 +51,10 @@ function loadMessages(lang, callback) {
 }
 
 function navigatorLang() {
-	var lang = navigator.language;
+    var lang = navigator.language;
+    if (!lang) {
+        return 'en';
+    }
 	if (lang == 'en') {
 		/**
 		 * @fixme navigator.language is always 'en' on Android? https://code.google.com/p/android/issues/detail?id=4641

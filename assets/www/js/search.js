@@ -1,6 +1,9 @@
 function search(isSuggestion) {
-    if($('#search').hasClass('inProgress')) {
-        window.frames[0].stop();
+    if ($('#search').hasClass('inProgress')) {
+        try {
+            window.frames[0].stop();
+        } catch (e) {
+        }
         $('#search').removeClass('inProgress');
         return;
     }

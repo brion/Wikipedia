@@ -2,7 +2,8 @@ var currentHistoryIndex = 0;
 var currentLocale = new Object();
 var defaultLocale = new Object();
 // default locale info
-defaultLocale.languageCode = removeCountryCode(navigator.language.toLowerCase());
+var lang = navigator.language ? navigator.language : 'en';
+defaultLocale.languageCode = removeCountryCode(lang.toLowerCase());
 defaultLocale.url = "http://" + defaultLocale.languageCode + ".m.wikipedia.org";
 
 currentLocale.languageCode = defaultLocale.languageCode;
