@@ -1,7 +1,8 @@
-*.properties
+/*.properties
 bin/*
 gen/*
 
 /.settings
 /bin
 /gen
+!project.properties
