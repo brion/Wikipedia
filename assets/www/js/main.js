@@ -41,7 +41,12 @@ function removeCountryCode(localeCode) {
 }
 
 function hideMobileLinks() {
-    var frameDoc = $("#main")[0].contentDocument;
+    try {
+        var frameDoc = $("#main")[0].contentDocument;
+    } catch (e) {
+        // we don't have elevated privileges -- skip.
+        return;
+    }
     $('#header', frameDoc).css('display', 'none');
     $('#footmenu', frameDoc).css('display', 'none');
 

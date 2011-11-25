@@ -1,5 +1,9 @@
-function addToHistory() {	
-	var title = document.getElementById("main").contentDocument.title;
+function addToHistory() {
+    try {
+        var title = document.getElementById("main").contentDocument.title;
+    } catch (e) {
+        title = 'Article';
+    }
 	var url = document.getElementById("main").contentWindow.location.href;
 	var index = title.indexOf(" - Wikipedia, the free encyclopedia");
 
