@@ -61,10 +61,11 @@ function displayResults(results) {
 					return;
 				}
 				
+				// @fixme escape!
 				formattedResults += "<div class='listItemContainer' onclick=\"javascript:goToResult(\'" + article + "\');\">";
 				formattedResults += "<div class='listItem'>";
 				formattedResults += "<span class='iconSearchResult'></span>";
-				formattedResults += "<span class='text'>" + article + "</span>";
+				formattedResults += "<a class='text' href=\"javascript:goToResult(\'" + article + "\')\">" + article + "</a>";
 				formattedResults += "</div>";
 				formattedResults += "</div>";
 			}
@@ -109,10 +110,11 @@ function displaySuggestions(results) {
             for (var i=0;i<searchResults.length;i++) {
                 var article = searchResults[i];
                 
+				// @fixme escape!
                 formattedResults += "<div class='listItemContainer' onclick=\"javascript:goToResult(\'" + article + "\');\">";
                 formattedResults += "<div class='listItem'>";
                 formattedResults += "<span class='iconSearchResult'></span>";
-                formattedResults += "<span class='text'>" + article + "</span>";
+				formattedResults += "<a class='text' href=\"javascript:goToResult(\'" + article + "\')\">" + article + "</a>";
                 formattedResults += "</div>";
                 formattedResults += "</div>";
             }
