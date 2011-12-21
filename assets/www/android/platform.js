@@ -102,3 +102,19 @@ function enableCaching() {
 	console.log('attempting to set cache mode');
 	window.plugins.CacheMode.setCacheMode('LOAD_CACHE_ELSE_NETWORK');
 }
+
+/**
+ * @Override
+ *
+ * Get the system locale and return it to a callback function (may be async)
+ *
+ * @param callback function(locale)
+ */
+function getLocale(callback) {
+	(new Globalization).getLocaleName(function(locale) {
+		console.log('val: ' + locale.value);
+		callback(locale.value);
+	}, function(err) {
+		console.log('val err: ' + err);
+	});
+}

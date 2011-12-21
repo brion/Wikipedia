@@ -1,12 +1,6 @@
 var currentHistoryIndex = 0;
 var currentLocale = new Object();
 var defaultLocale = new Object();
-// default locale info
-defaultLocale.languageCode = removeCountryCode(navigator.language.toLowerCase());
-defaultLocale.url = "http://" + defaultLocale.languageCode + ".m.wikipedia.org";
-
-currentLocale.languageCode = defaultLocale.languageCode;
-currentLocale.url = defaultLocale.url;
 
 var pageHistory = [];
 
@@ -14,42 +8,63 @@ function init() {
 	document.addEventListener("deviceready", onDeviceReady, true);
 }
 
+function initLocale() {
+	getLocale(function(locale) {
+		// default locale info
+		defaultLocale.languageCode = removeCountryCode(locale);
+		defaultLocale.url = "http://" + defaultLocale.languageCode + ".m.wikipedia.org";
+
+		currentLocale.languageCode = defaultLocale.languageCode;
+		currentLocale.url = defaultLocale.url;
+		
+		// will trigger mw-messages-ready
+		initLanguages(locale);
+	});
+}
+
 function onDeviceReady() {
-
-	// some reason the android browser is not recognizing the style=block when set in the CSS
-	// it only seems to recognize the style when dynamically set here or when set inline...
-	// the style needs to be explicitly set for logic used in the backButton handler
-	$('#content').css('display', 'block');
-
-	// this has to be set for the window.history API to work properly
-	PhoneGap.UsePolling = true;
-
-	// Fixes clicks on the header element 'going through' to elements under them
-	// touchstart responds much faster than click, which starts focus
-	// Ideally the focus/blur cycle should take care of the keyboard as well, but doesn't
-	$("#searchParam").bind('touchstart', function() {
-		$(this).focus().addClass('active');
-		window.plugins.SoftKeyBoard.show();
-		return false;
-	}).bind('blur', function() {
-		$(this).removeClass('active');
-		window.plugins.SoftKeyBoard.hide();
-	});
+	$(document).one('mw-messages-ready', function() {
+		// some reason the android browser is not recognizing the style=block when set in the CSS
+		// it only seems to recognize the style when dynamically set here or when set inline...
+		// the style needs to be explicitly set for logic used in the backButton handler
+		$('#content').css('display', 'block');
 	
-	$(".titlebarIcon").bind('touchstart', function() {
-		homePage();
-		return false;
+		// this has to be set for the window.history API to work properly
+		PhoneGap.UsePolling = true;
+	
+		// Fixes clicks on the header element 'going through' to elements under them
+		// touchstart responds much faster than click, which starts focus
+		// Ideally the focus/blur cycle should take care of the keyboard as well, but doesn't
+		$("#searchParam").bind('touchstart', function() {
+			$(this).focus().addClass('active');
+			window.plugins.SoftKeyBoard.show();
+			return false;
+		}).bind('blur', function() {
+			$(this).removeClass('active');
+			window.plugins.SoftKeyBoard.hide();
+		});
+		
+		$(".titlebarIcon").bind('touchstart', function() {
+			homePage();
+			return false;
+		});
+		$("#searchForm").bind('submit', function() {
+			search(false);
+			return false;
+		});
+		$("#clearSearch").bind('touchstart', function() {
+			clearSearch();
+			return false;
+		});
+	
+		document.addEventListener('resume', function() {
+			initLocale();
+		});
+
+		loadContent();
+		setActiveState();
 	});
-	$("#searchForm").bind('submit', function() {
-		search(false);
-		return false;
-	});
-	$("#clearSearch").bind('touchstart', function() {
-		clearSearch();
-		return false;
-	});
-	loadContent();
-	setActiveState();
+	initLocale();
 }
 
 function removeCountryCode(localeCode) {
@@ -325,4 +340,15 @@ function currentPageTitle() {
 		unescaped = decodeURIComponent(page),
 		title = unescaped.replace(/_/g, ' ');
 	return title;
+}
+
+/**
+ * Get the system locale and return it to a callback function (may be async)
+ *
+ * @param callback function(locale)
+ */
+function getLocale(callback) {
+	setTimeout(function() {
+		callback(navigator.language);
+	}, 0);
 }
