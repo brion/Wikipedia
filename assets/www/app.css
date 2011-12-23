@@ -185,7 +185,7 @@ iframe#main {
 }
 
 #clearSearch {
-	position:fixed;
+	position:absolute;
 	top:12px;
 	right:47px;
 	z-index:2;
