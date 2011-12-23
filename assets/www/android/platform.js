@@ -40,9 +40,11 @@ function onBackButton() {
 }
 
 function onSearchButton() {
-    //hmmm...doesn't seem to set the cursor in the input field - maybe a browser bug???
     $('#searchParam').focus();
+    //hmmm...doesn't seem to set the cursor in the input field - maybe a browser bug???
     plugins.SoftKeyBoard.show();
+    // also manually scroll to top
+	document.body.scrollTop = 0;
 }
 
 function selectText() {
