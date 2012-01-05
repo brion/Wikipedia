@@ -42,6 +42,10 @@ function onDeviceReady() {
 		$(this).removeClass('active');
 		window.plugins.SoftKeyBoard.hide();
 	});
+	$('#searchParam').focus(function() {
+		$(this).val('Search...');
+		this.setSelectionRange(0, $(this).val().length);
+	});
 	
 	$(".titlebarIcon").bind('touchstart', function() {
 		homePage();
