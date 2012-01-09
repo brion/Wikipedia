@@ -28,9 +28,14 @@ function langLinkSelector(languages) {
 			.text(lang.name)
 			.end()
 		.find('a')
-			.click(function() {
+			.bind('touchstart', function() {
+				// Note that click() sometimes gives a mismatched result on Android 4, so using touchstart/touchend. 
+				e.preventDefault();
+			})
+			.bind('touchend', function() {
 				app.navigateToPage(lang.url);
 				hideOverlays();
+				e.preventDefault();
 			})
 			.end()
 		.appendTo($list);
