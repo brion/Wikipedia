@@ -28,7 +28,8 @@ function updateMenuState() {
 						sharePage();
 					}
 				}, {
-					cancelButtonIndex: 2
+					cancelButtonIndex: 2,
+					origin: this
 				});
 			}
 		},
@@ -49,7 +50,8 @@ function updateMenuState() {
 						getHistory();
 					}
 				}, {
-					cancelButtonIndex: 3
+					cancelButtonIndex: 3,
+					origin: this
 				});
 			}
 		},
@@ -69,7 +71,7 @@ function updateMenuState() {
 		$button
 			.attr('id', item.id)
 			.click(function() {
-				item.action();
+				item.action.apply(this);
 			})
 			.append('<span>')
 			.appendTo($menu);
@@ -78,5 +80,10 @@ function updateMenuState() {
 
 // @Override
 function popupMenu(items, callback, options) {
+	if (options.origin) {
+		var pos = $(options.origin).offset();
+		options.x = pos.left;
+		options.y = 52; // hack pos.top;
+	}
 	window.plugins.actionSheet.create('', items, callback, options);
 }

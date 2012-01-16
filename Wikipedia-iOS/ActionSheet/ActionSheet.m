@@ -29,7 +29,9 @@
 	NSArray *items = [options objectForKey:@"items"];
 	NSInteger cancelButtonIndex = [[options objectForKey:@"cancelButtonIndex"] intValue] ?: false;
 	NSInteger destructiveButtonIndex = [[options objectForKey:@"destructiveButtonIndex"] intValue] ?: false;
-	
+    NSInteger x = [[options objectForKey:@"x"] intValue] ?: false;
+    NSInteger y = [[options objectForKey:@"y"] intValue] ?: false;
+
 	// Create actionSheet
 	UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:title
 												   delegate:self
@@ -55,7 +57,14 @@
 	}
 
 	// Toggle ActionSheet
-    [actionSheet showInView:self.webView.superview];
+    if (x) {
+        CGRect rect = CGRectMake(x, y, 1, 1);
+        NSLog(@"%d %d THINGY", x, y);
+        [actionSheet showFromRect:rect inView:self.webView.superview animated:YES];
+    } else {
+        NSLog(@"NO ROOT");
+        [actionSheet showInView:self.webView.superview];
+    }
 
 }
 
