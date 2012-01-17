@@ -428,7 +428,16 @@ header
 	background: url(img/xhdpi/optionReadLater.png);
 }
 
+#menu-sharePage span {
+	background: url(img/xhdpi/optionSharePage.png);
+}
+
 #menu-settings span {
+	background: url(image/ios/toolbar-settings.png);
+	background-size: 26px 28px !important;
+}
+
+#menu-overflow span {
 	background: url(image/ios/toolbar-settings.png);
 	background-size: 26px 28px !important;
 }
@@ -503,4 +512,41 @@ header
 		overflow: auto;
 		-webkit-overflow-scrolling: touch;
 	}
+}
+
+
+.tab-bar {
+	font-family: sans-serif;
+	display: inline-block;
+	margin-left: 48px;
+	padding-bottom: 4px;
+	border-bottom: 1px solid white;
+}
+
+.tab-bar span {
+	padding-left: 16px;
+	padding-right: 16px;
+}
+.tab-bar span.active {
+	border-bottom: 5px solid white;
+}
+
+label {
+	font-family: sans-serif;
+	position: relative; /* all hacks */
+	top: -16px;
+	color: white;
+	height: 48px;
+	vertical-align: center;
+	padding-bottom: 16px;
+}
+
+span.sep {
+	display:inline-block;
+	height: 32px;
+	margin-left: 16px;
+	border-right: solid 1px white;
+	position: relative; /* all hacks */
+	position: relative; /* all hacks */
+	top: -8px;
 }

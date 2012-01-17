@@ -74,6 +74,55 @@ function updateMenuState() {
 	window.plugins.SimpleMenu.loadMenu($('#appMenu')[0], 
 									   function(success) {console.log(success);},
 									   function(error) {console.log(error);});
+
+	var items = [
+		{
+			id: 'menu-language',
+			label: mw.msg('menu-language'),
+			action: selectLanguage
+		},
+		{
+			id: 'menu-savePage',
+			label: mw.msg('menu-savePage'),
+			action: savePage,
+		},
+		{
+			id: 'menu-sharePage',
+			label: mw.msg('menu-sharePage'),
+			action: sharePage
+		},
+		{
+			id: 'menu-overflow',
+			action: overflowMenu
+		}
+	];
+	$('#menu').remove();
+	var $menu = $('<div>');
+	$menu
+		.attr('id', 'menu')
+		.appendTo('body');
+
+	$.each(items, function(i, item) {
+		if (i > 0) {
+			$('<span class="sep"></span>').appendTo($menu);
+		}
+		var $button = $('<button>');
+		$button
+			.attr('id', item.id)
+			.click(function() {
+				item.action();
+			})
+			.append('<span>')
+			.appendTo($menu);
+		if ('label' in item) {
+			var $label = $('<label>');
+			$label
+				.attr('for', item.id)
+				.text(item.label)
+				.appendTo($menu);
+		}
+	});
+
 };
 
 //@Override
@@ -92,4 +141,8 @@ function enableCaching() {
 		console.log('ONLINE');
 		window.plugins.CacheMode.setCacheMode('LOAD_DEFAULT');
 	});
+}
+
+function overflowMenu()
+{
 }

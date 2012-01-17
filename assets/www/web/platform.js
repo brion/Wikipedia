@@ -12,59 +12,23 @@ window.addEventListener('load', function() {
 function updateMenuState() {
 	var items = [
 		{
-			id: 'menu-back',
-			action: goBack
-		},
-		{
-			id: 'menu-forward',
-			action: goForward
-		},
-		{
 			id: 'menu-language',
+			label: mw.msg('menu-language'),
 			action: selectLanguage
 		},
 		{
-			id: 'menu-output',
-			action: function() {
-				popupMenu([
-					mw.msg('menu-savepage'),
-					mw.msg('menu-share'),
-					mw.msg('menu-cancel')
-				], function(value, index) {
-					if (index == 0) {
-						savePage();
-					} else if (index == 1) {
-						sharePage();
-					}
-				}, {
-					cancelButtonIndex: 2
-				});
-			}
+			id: 'menu-savePage',
+			label: mw.msg('menu-savePage'),
+			action: savePage,
 		},
 		{
-			id: 'menu-sources',
-			action: function() {
-				popupMenu([
-					mw.msg('menu-nearby'),
-					mw.msg('menu-savedPages'),
-					mw.msg('menu-history'),
-					mw.msg('menu-cancel')
-				], function(val, index) {
-					if (index == 0) {
-						getCurrentPosition();
-					} else if (index == 1) {
-						showSavedPages();
-					} else if (index == 2) {
-						getHistory();
-					}
-				}, {
-					cancelButtonIndex: 3
-				});
-			}
+			id: 'menu-sharePage',
+			label: mw.msg('menu-sharePage'),
+			action: sharePage
 		},
 		{
-			id: 'menu-settings',
-			action: getSettings
+			id: 'menu-overflow',
+			action: overflowMenu
 		}
 	];
 	$('#menu').remove();
@@ -74,6 +38,9 @@ function updateMenuState() {
 		.appendTo('body');
 
 	$.each(items, function(i, item) {
+		if (i > 0) {
+			$('<span class="sep"></span>').appendTo($menu);
+		}
 		var $button = $('<button>');
 		$button
 			.attr('id', item.id)
@@ -82,6 +49,13 @@ function updateMenuState() {
 			})
 			.append('<span>')
 			.appendTo($menu);
+		if ('label' in item) {
+			var $label = $('<label>');
+			$label
+				.attr('for', item.id)
+				.text(item.label)
+				.appendTo($menu);
+		}
 	});
 };
 
@@ -112,4 +86,11 @@ function popupMenu(items, callback, options) {
 			$button.addClass('cancel');
 		}
 	});
+}
+
+function sharePage()
+{
+}
+function overflowMenu()
+{
 }
