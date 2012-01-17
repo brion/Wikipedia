@@ -20,6 +20,26 @@ function getCurrentPosition() {
 
 	navigator.geolocation.getCurrentPosition(function(pos) {
 		geomap.setView(new L.LatLng(pos.coords.latitude, pos.coords.longitude), 13);
+		
+		geoLookup(pos.coords.latitude, pos.coords.longitude, 'en', function(data) {
+			alert(data);
+		}, function(err) {
+			alert(err);
+		});
 	});
 }
 
+function geoLookup(latitude, longitude, lang, success, error) {
+	var requestUrl = "http://ws.geonames.net/findNearbyWikipediaJSON?formatted=true&";
+	requestUrl += "lat=" + latitude + "&";
+	requestUrl += "lng=" + longitude + "&";
+	requestUrl += "username=wikimedia&";
+	requestUrl += "lang=" + lang;
+	$.ajax({
+		url: requestUrl,
+		success: function(xhr, data) {
+			success(data);
+		},
+		error: error
+	});
+}
