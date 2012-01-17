@@ -27,9 +27,9 @@ function getCurrentPosition() {
 
 	navigator.geolocation.getCurrentPosition(function(pos) {
 		geomap.setView(new L.LatLng(pos.coords.latitude, pos.coords.longitude), 13);
-		
+
 		geoLookup(pos.coords.latitude, pos.coords.longitude, 'en', function(data) {
-			alert(data);
+			geoAddMarkers(data);
 		}, function(err) {
 			alert(err);
 		});
