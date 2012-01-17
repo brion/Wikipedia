@@ -15,7 +15,14 @@ function getCurrentPosition() {
 		geomap.addLayer(tiles);
 
 		// @fixme load last-seen coordinates
-		geomap.setView(new L.LatLng(0, 0), 13);
+		var lat = 37, lon = -122;
+		geomap.setView(new L.LatLng(lat, lon), 13);
+
+		geoLookup(lat, lon, 'en', function(data) {
+			geoAddMarkers(data);
+		}, function(err) {
+			alert(err);
+		});
 	}
 
 	navigator.geolocation.getCurrentPosition(function(pos) {
@@ -37,9 +44,25 @@ function geoLookup(latitude, longitude, lang, success, error) {
 	requestUrl += "lang=" + lang;
 	$.ajax({
 		url: requestUrl,
-		success: function(xhr, data) {
-			success(data);
+		success: function(data) {
+			success(JSON.parse(data));
 		},
 		error: error
 	});
 }
+
+function geoAddMarkers(data) {
+	// how to clear markers?
+	$.each(data.geonames, function(i, item) {
+		var url = item.wikipediaUrl.replace(/^([a-z0-9-]+)\.wikipedia\.org/, 'https://$1.m.wikipedia.org');
+		console.log(item);
+		console.log(item.lat + ',' + item.lng + ': ' + url);
+		var marker = new L.Marker(new L.LatLng(item.lat, item.lng));
+		geomap.addLayer(marker);
+		marker.bindPopup('<div onclick="app.navigateToPage(&quot;' + url + '&quot;);hideOverlays();">' +
+		                 '<strong>' + item.title + '</strong>' +
+		                 '<p>' + item.summary + '</p>' +
+		                 '</div>');
+	});
+}
+
