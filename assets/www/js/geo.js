@@ -18,23 +18,21 @@ function getCurrentPosition() {
 		// @fixme load last-seen coordinates
 		var lat = 37, lon = -122;
 		geomap.setView(new L.LatLng(lat, lon), 13);
-
-		geoLookup(lat, lon, 'en', function(data) {
-			geoAddMarkers(data);
-		}, function(err) {
-			alert(err);
-		});
+		var ping = function() {
+			var pos = geomap.getCenter();
+			geoLookup(pos.lat, pos.lng, 'en', function(data) {
+				geoAddMarkers(data);
+			}, function(err) {
+				alert(err);
+			});
+		};
+		
+		geomap.on('viewreset', ping);
+		geomap.on('locationfound', ping);
+		geomap.on('moveend', ping);
 	}
 
-	navigator.geolocation.getCurrentPosition(function(pos) {
-		geomap.setView(new L.LatLng(pos.coords.latitude, pos.coords.longitude), 13);
-
-		geoLookup(pos.coords.latitude, pos.coords.longitude, 'en', function(data) {
-			geoAddMarkers(data);
-		}, function(err) {
-			alert(err);
-		});
-	});
+	geomap.locateAndSetView(13);
 }
 
 function geoLookup(latitude, longitude, lang, success, error) {
