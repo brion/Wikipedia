@@ -1,4 +1,5 @@
-var geomap = false;
+var geomap = false,
+	geomarkers = false;
 
 function getCurrentPosition() {
 	hideOverlayDivs();
@@ -52,17 +53,22 @@ function geoLookup(latitude, longitude, lang, success, error) {
 }
 
 function geoAddMarkers(data) {
-	// how to clear markers?
+	if (geomarkers) {
+		geomap.removeLayer(geomarkers);
+		geomarkers = false;
+	}
+	geomarkers = new L.LayerGroup();
 	$.each(data.geonames, function(i, item) {
 		var url = item.wikipediaUrl.replace(/^([a-z0-9-]+)\.wikipedia\.org/, 'https://$1.m.wikipedia.org');
 		console.log(item);
 		console.log(item.lat + ',' + item.lng + ': ' + url);
 		var marker = new L.Marker(new L.LatLng(item.lat, item.lng));
-		geomap.addLayer(marker);
+		geomarkers.addLayer(marker);
 		marker.bindPopup('<div onclick="app.navigateToPage(&quot;' + url + '&quot;);hideOverlays();">' +
 		                 '<strong>' + item.title + '</strong>' +
 		                 '<p>' + item.summary + '</p>' +
 		                 '</div>');
 	});
+	geomap.addLayer(geomarkers);
 }
 
