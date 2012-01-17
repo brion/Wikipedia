@@ -20,12 +20,15 @@ function updateMenuState() {
 				popupMenu([
 					mw.msg('menu-savePage'),
 					mw.msg('menu-sharePage'),
+					mw.msg('menu-print'),
 					mw.msg('menu-cancel')
 				], function(value, index) {
 					if (index == 0) {
 						savePage();
 					} else if (index == 1) {
 						sharePage();
+					} else if (index == 2) {
+						printPage();
 					}
 				}, {
 					cancelButtonIndex: 2
@@ -79,4 +82,16 @@ function updateMenuState() {
 // @Override
 function popupMenu(items, callback, options) {
 	window.plugins.actionSheet.create('', items, callback, options);
+}
+
+function printPage() {
+	var html = $('#main').html();
+	window.plugins.printPlugin.print(html,
+		function() {
+			alert('success');
+		},
+		function() {
+			alert('error');
+		}
+	);
 }
