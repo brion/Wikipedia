@@ -16,7 +16,7 @@ function getCurrentPosition() {
 		geomap.addLayer(tiles);
 
 		// @fixme load last-seen coordinates
-		var lat = 37, lon = -122;
+		var lat = 0, lon = 0;
 		geomap.setView(new L.LatLng(lat, lon), 13);
 		var ping = function() {
 			var pos = geomap.getCenter();
