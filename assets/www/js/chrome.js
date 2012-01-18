@@ -265,6 +265,17 @@ window.chrome = function() {
 		console.log('currentHistoryIndex '+currentHistoryIndex + ' history length '+pageHistory.length);
 	}
 
+	/**
+	 * Set up a scrollable element; by default they should just have 'overflow: auto'
+	 */
+	function setupScroll(container) {
+		$(container).css('overflow', 'auto');
+	};
+
+	function refreshScroll(container) {
+		// no-op
+	}
+
 	return {
 		initialize: initialize,
 		renderHtml: renderHtml,
@@ -279,6 +290,8 @@ window.chrome = function() {
 		hideContent: hideContent,
 		addPlatformInitializer: addPlatformInitializer,
 		showNoConnectionMessage: showNoConnectionMessage,
-		doFocusHack: doFocusHack
+		doFocusHack: doFocusHack,
+		setupScroll: setupScroll,
+		refreshScroll: refreshScroll
 	};
 }();

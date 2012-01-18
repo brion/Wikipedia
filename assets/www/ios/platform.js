@@ -90,3 +90,15 @@ function popupMenu(items, callback, options) {
 	}
 	window.plugins.actionSheet.create('', items, callback, options);
 }
+
+chrome.setupScroll = function(container) {
+	// Use iScroll on iOS 4.x; no native position:fixed support or overflow:y with single-finger.
+	var scroller = new iScroll(container);
+	$(container).data('scroller', scroller);
+};
+
+chrome.refreshScroll = function(container) {
+	var scroller = $(container).data('scroller');
+	scroller.refresh();
+}
+

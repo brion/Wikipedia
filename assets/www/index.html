@@ -14,6 +14,7 @@
 	<script type="text/javascript" charset="utf-8" src="js/hogan.min.js"></script>
 	<script type="text/javascript" charset="utf-8" src="js/mediawiki.js"></script>
 	<script type="text/javascript" charset="utf-8" src="js/jquery.localize.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/iscroll.js"></script>
 
 	<script type="text/javascript" charset="utf-8" src="leaflet/leaflet.js"></script>
 
@@ -146,39 +147,41 @@
 		</div>
 	</header>
 
-	<div id="about-page-overlay">
-		<img src="image/logo.png" />
-		<p id="about-version"><msg key="about-version"></msg> 1.0</p>
-		<a id="about-wmf-logo" href="http://wikimediafoundation.org/"><img src="image/wmf.png" /></a>
-		<p id="about-copyright"><msg key="about-copyright"></msg></p>
-		<p id="about-license"><msg key="about-license"></msg></p>
+	<div id="about-page-overlay" class="overlay">
+		<div class="scroller">
+			<img src="image/logo.png" />
+			<p id="about-version"><msg key="about-version"></msg> 1.0</p>
+			<a id="about-wmf-logo" href="http://wikimediafoundation.org/"><img src="image/wmf.png" /></a>
+			<p id="about-copyright"><msg key="about-copyright"></msg></p>
+			<p id="about-license"><msg key="about-license"></msg></p>
+		</div>
 	</div>
 
-	<div id="savedPages">
+	<div id="savedPages" class="overlay">
 		<header>
 			<div class="titlebar">
 				<div class="titlebarItem"><msg key="saved-pages-title">Saved Pages</msg></div>
 				<div class="titlebarItem closeButton"></div>
 			</div>
 		</header>
-		<div id="savedPagesList"></div>
+		<div id="savedPagesList" class="scroller"></div>
 	</div>
 		
-	<div id="history">
+	<div id="history" class="overlay">
 		<header>
 			<div class="titlebar">
 				<div class="titlebarItem"><msg key="history-title">History</msg></div>
 				<div class="titlebarItem closeButton"></div>
 			</div>
 		</header>
-		<div id="historyList"></div>
+		<div id="historyList" class="scroller"></div>
 	</div>
 
-	<div id="searchresults">
-		<div id="resultList"></div>
+	<div id="searchresults" class="overlay">
+		<div id="resultList" class="scroller"></div>
 	</div>
 
-	<div id="settings">
+	<div id="settings" class="overlay">
 		
 		<div>
 			<div class="titlebar">
@@ -186,25 +189,25 @@
 				<div class="titlebarItem closeButton"></div>
 			</div>
 		</div>  
-		<div id="settingsList">
+		<div id="settingsList" class="scroller">
 		</div>
 	</div>
 
-	<div id="langlinks">
+	<div id="langlinks" class="overlay">
 		<header>
 			<div class="titlebar">
 				<div class="titlebarItem"><msg key="langlinks-title">Read article in...</msg></div>
 				<div class="titlebarItem closeButton"></div>
 			</div>
 		</header>
-		<div id="langList"></div>
+		<div id="langList" class="scroller"></div>
 	</div>
 
 	<div id="content">
-		<div id="main"></div>
+		<div id="main" class="scroller"></div>
 	</div>  
 	
-	<div id="nearby-overlay">
+	<div id="nearby-overlay" class="overlay">
 		<header>
 			<div class="titlebar">
 				<div class="titlebarItem"><msg key="nearby-title">Nearby</msg></div>
