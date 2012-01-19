@@ -123,6 +123,11 @@ window.chrome = function() {
 
 	}
 
+	function isTwoColumnView() {
+		// should match the CSS media queries
+		return (document.width >= 640);
+	}
+
 	function hideOverlays() {
 		$('#savedPages').hide();
 		$('#history').hide();
@@ -141,7 +146,9 @@ window.chrome = function() {
 
 	function hideContent() {  
 		$('#mainHeader').hide();
-		$('#content').hide();
+		if(!isTwoColumnView()) {
+			$('#content').hide();
+		}
 	}
 
 	function showNoConnectionMessage() {
@@ -291,6 +298,7 @@ window.chrome = function() {
 		addPlatformInitializer: addPlatformInitializer,
 		showNoConnectionMessage: showNoConnectionMessage,
 		doFocusHack: doFocusHack,
+		isTwoColumnView: isTwoColumnView,
 		setupScroll: setupScroll,
 		refreshScroll: refreshScroll
 	};
