@@ -115,3 +115,28 @@ function popupMenu(items, callback, options) {
 		}
 	});
 }
+
+
+
+chrome.setupScroll = function(container) {
+	// Use iScroll on iOS 4.x; no native position:fixed support or overflow:y with single-finger.
+	var $scroller = $(container).closest('.scroller');
+	if ($scroller.length == 0) {
+		throw new Error('sigh');
+	}
+	if ($scroller.data('scroller')) {
+		chrome.refreshScroll(container);
+	} else {
+		var scroller = new iScroll($scroller[0]);
+		setTimeout(function() {
+			scroller.refresh();
+		}, 500);
+	}
+};
+
+chrome.refreshScroll = function(container) {
+	var $scroller = $(container).closest('.scroller');
+	var scroller = $scroller.data('scroller');
+	scroller.refresh();
+}
+

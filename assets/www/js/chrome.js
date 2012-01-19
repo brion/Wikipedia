@@ -263,7 +263,7 @@ window.chrome = function() {
 	}
 	
 	function onPageLoaded() {
-		window.scroll(0,0);
+		chrome.setupScroll('#main');
 		appHistory.addCurrentPage();
 		toggleForward();
 		updateMenuState(menu_handlers);

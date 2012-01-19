@@ -93,8 +93,11 @@ function popupMenu(items, callback, options) {
 
 chrome.setupScroll = function(container) {
 	// Use iScroll on iOS 4.x; no native position:fixed support or overflow:y with single-finger.
-	var scroller = new iScroll(container);
-	$(container).data('scroller', scroller);
+	if ($(container).data('scroller')) {
+		chrome.refreshScroll(container);
+	} else {
+		var scroller = new iScroll($(container)[0]);
+	}
 };
 
 chrome.refreshScroll = function(container) {
