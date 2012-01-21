@@ -212,7 +212,6 @@ window.chrome = function() {
 			applicableClasses[key] += ':not(.activeEnabled)';
 		}
 		console.log(applicableClasses);
-		
 		function onTouchEnd() {
 			$('.active').removeClass('active');
 			$('body').unbind('touchend', onTouchEnd);
