@@ -267,7 +267,7 @@ window.chrome = function() {
 		window.scroll(0,0);
 		appHistory.addCurrentPage();
 		toggleForward();
-		updateMenuState(menu_handlers);
+		menu.updateMenu(menu_handlers);
 		$('#search').removeClass('inProgress');        
 		chrome.hideSpinner();  
 		console.log('currentHistoryIndex '+currentHistoryIndex + ' history length '+pageHistory.length);
