@@ -67,7 +67,11 @@ chrome.showNotification = function(text) {
 	window.plugins.ToastPlugin.show_short(text);
 }
 
-function updateMenuState(menu_handlers) {
+var origUpdateMenu = menu.updateMenu;
+
+// @Override
+menu.updateMenu = function(menu_handlers) {
+	origUpdateMenu();
 	$('#appMenu command').each(function() {
 		var $command = $(this),
 			id = $command.attr('id'),

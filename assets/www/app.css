@@ -511,7 +511,7 @@ header
 	}
 	.goodscroll.android header {
 		/* @fixme add menu/actionbar */
-		width: 100%;
+		/*width: 100%;*/
 	}
 	.goodscroll #menu {
 		top: 0;
