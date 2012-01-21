@@ -90,3 +90,15 @@ function popupMenu(items, callback, options) {
 	}
 	window.plugins.actionSheet.create('', items, callback, options);
 }
+
+chrome.doScrollHack = function(element) {
+	// @fixme only use on iOS 4.2?
+	var $el = $(element),
+		scroller = $el.data('scroller');
+	if (scroller) {
+		scroller.refresh();
+	} else {
+		scroller = new iScroll($el[0]);
+		$el.data('scroller', scroller);
+	}
+}
