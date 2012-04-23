@@ -7,6 +7,18 @@
 	<base /><!-- used to process relative links in content -->
 	<title>Wikipedia</title>
 
+  <script type="text/javascript">
+    if (typeof window.console == "undefined") {
+      // for Windows Phone 7.x
+      window.console = { log: function (str) { window.external.Notify(str); } };
+
+      // output any errors to console log, created above.
+      window.onerror = function (msg,url,linenumber) {
+        console.log("Error ::" + msg + " in " + url + " at line " + linenumber);
+      };
+    }
+    console.log('Testing console output');
+  </script>
 	<script type="text/javascript" charset="utf-8" src="js/lawnchair/Lawnchair.js"></script>
 	<script type="text/javascript" charset="utf-8" src="js/lawnchair/adapters/webkit-sqlite.js"></script>
 

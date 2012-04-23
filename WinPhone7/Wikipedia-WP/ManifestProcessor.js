@@ -8,7 +8,7 @@ for (i = 0; i < objArgs.length; i++)
 
 var fso = WScript.CreateObject("Scripting.FileSystemObject");
 
-var folder = fso.GetFolder("..\\..\\www");
+var folder = fso.GetFolder("..\\..\\..\\..\\assets\\www");
 
 var outFile = fso.CreateTextFile("..\\..\\GapSourceDictionary.xml", true);
 

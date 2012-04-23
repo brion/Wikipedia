@@ -89,6 +89,7 @@
     </Content>
     <Content Include="..\..\assets\www\index.html">
       <Link>www\index.html</Link>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="..\..\assets\www\js\chrome.js">
       <Link>www\js\chrome.js</Link>
@@ -111,8 +112,8 @@
     <Content Include="..\..\assets\www\js\mobilefrontend.js">
       <Link>www\js\mobilefrontend.js</Link>
     </Content>
-    <Content Include="..\..\assets\www\js\network.js">
-      <Link>www\js\network.js</Link>
+    <Content Include="..\..\assets\www\js\page.js">
+      <Link>www\js\page.js</Link>
     </Content>
     <Content Include="..\..\assets\www\js\preferences.js">
       <Link>www\js\preferences.js</Link>
@@ -156,9 +157,6 @@
     <Content Include="..\..\assets\www\js\settings.js">
       <Link>www\js\settings.js</Link>
     </Content>
-    <Content Include="..\..\assets\www\js\zepto.min.js">
-      <Link>www\js\zepto.min.js</Link>
-    </Content>
     <Content Include="..\..\assets\www\js\lawnchair\Lawnchair.js">
       <Link>www\js\lawnchair\Lawnchair.js</Link>
     </Content>
@@ -167,6 +165,15 @@
     </Content>
     <Content Include="..\..\assets\www\winphone\platform.js">
       <Link>www\winphone\platform.js</Link>
+    </Content>
+    <Content Include="..\..\assets\www\MobileFrontend\stylesheets\beta_common.css">
+      <Link>www\MobileFrontend\stylesheets\beta_common.css</Link>
+    </Content>
+    <Content Include="..\..\assets\www\MobileFrontend\stylesheets\hacks.css">
+      <Link>www\MobileFrontend\stylesheets\hacks.css</Link>
+    </Content>
+    <Content Include="..\..\assets\www\MobileFrontend\stylesheets\sections.css">
+      <Link>www\MobileFrontend\stylesheets\sections.css</Link>
     </Content>
     <Content Include="GapLib\WP7GapClassLib.dll" />
     <Content Include="GapSourceDictionary.xml" />
