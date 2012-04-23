@@ -294,12 +294,12 @@
     <Content Include="..\..\assets\www\MobileFrontend\stylesheets\hacks.css">
       <Link>www\MobileFrontend\stylesheets\hacks.css</Link>
     </Content>
-    <Resource Include="..\..\assets\www\MobileFrontend\stylesheets\images\hide.png">
+    <Content Include="..\..\assets\www\MobileFrontend\stylesheets\images\hide.png">
       <Link>www\MobileFrontend\stylesheets\images\hide.png</Link>
-    </Resource>
-    <Resource Include="..\..\assets\www\MobileFrontend\stylesheets\images\show.png">
+    </Content>
+    <Content Include="..\..\assets\www\MobileFrontend\stylesheets\images\show.png">
       <Link>www\MobileFrontend\stylesheets\images\show.png</Link>
-    </Resource>
+    </Content>
     <Content Include="..\..\assets\www\MobileFrontend\stylesheets\sections.css">
       <Link>www\MobileFrontend\stylesheets\sections.css</Link>
     </Content>
