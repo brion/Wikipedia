@@ -1,0 +1,28 @@
+c:\users\brion\documents\visual studio 2010\Projects\CordovaStarter1\CordovaStarter1\Bin\Debug\ApplicationIcon.png
+c:\users\brion\documents\visual studio 2010\Projects\CordovaStarter1\CordovaStarter1\Bin\Debug\Background.png
+c:\users\brion\documents\visual studio 2010\Projects\CordovaStarter1\CordovaStarter1\Bin\Debug\CordovaStarter1.dll
+c:\users\brion\documents\visual studio 2010\Projects\CordovaStarter1\CordovaStarter1\Bin\Debug\CordovaStarter1.pdb
+c:\users\brion\documents\visual studio 2010\Projects\CordovaStarter1\CordovaStarter1\Bin\Debug\AppManifest.xaml
+c:\users\brion\documents\visual studio 2010\Projects\CordovaStarter1\CordovaStarter1\Bin\Debug\CordovaStarter1.xap
+c:\users\brion\documents\visual studio 2010\Projects\CordovaStarter1\CordovaStarter1\Bin\Debug\WP7CordovaClassLib.dll
+c:\users\brion\documents\visual studio 2010\Projects\CordovaStarter1\CordovaStarter1\obj\Debug\ResolveAssemblyReference.cache
+c:\users\brion\documents\visual studio 2010\Projects\CordovaStarter1\CordovaStarter1\obj\Debug\App.g.i.cs
+c:\users\brion\documents\visual studio 2010\Projects\CordovaStarter1\CordovaStarter1\obj\Debug\MainPage.g.i.cs
+c:\users\brion\documents\visual studio 2010\Projects\CordovaStarter1\CordovaStarter1\obj\Debug\CordovaStarter1.g.resources
+c:\users\brion\documents\visual studio 2010\Projects\CordovaStarter1\CordovaStarter1\obj\Debug\CordovaStarter1.dll
+c:\users\brion\documents\visual studio 2010\Projects\CordovaStarter1\CordovaStarter1\obj\Debug\CordovaStarter1.pdb
+c:\users\brion\documents\visual studio 2010\Projects\CordovaStarter1\CordovaStarter1\obj\Debug\XapCacheFile.xml
+C:\Users\brion\src\wiki\mobile\WinPhone7\CordovaStarter1\Bin\Debug\ApplicationIcon.png
+C:\Users\brion\src\wiki\mobile\WinPhone7\CordovaStarter1\Bin\Debug\Background.png
+C:\Users\brion\src\wiki\mobile\WinPhone7\CordovaStarter1\Bin\Debug\CordovaStarter1.dll
+C:\Users\brion\src\wiki\mobile\WinPhone7\CordovaStarter1\Bin\Debug\CordovaStarter1.pdb
+C:\Users\brion\src\wiki\mobile\WinPhone7\CordovaStarter1\Bin\Debug\AppManifest.xaml
+C:\Users\brion\src\wiki\mobile\WinPhone7\CordovaStarter1\Bin\Debug\CordovaStarter1.xap
+C:\Users\brion\src\wiki\mobile\WinPhone7\CordovaStarter1\Bin\Debug\WP7CordovaClassLib.dll
+C:\Users\brion\src\wiki\mobile\WinPhone7\CordovaStarter1\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\brion\src\wiki\mobile\WinPhone7\CordovaStarter1\obj\Debug\App.g.i.cs
+C:\Users\brion\src\wiki\mobile\WinPhone7\CordovaStarter1\obj\Debug\MainPage.g.i.cs
+C:\Users\brion\src\wiki\mobile\WinPhone7\CordovaStarter1\obj\Debug\CordovaStarter1.g.resources
+C:\Users\brion\src\wiki\mobile\WinPhone7\CordovaStarter1\obj\Debug\CordovaStarter1.dll
+C:\Users\brion\src\wiki\mobile\WinPhone7\CordovaStarter1\obj\Debug\CordovaStarter1.pdb
+C:\Users\brion\src\wiki\mobile\WinPhone7\CordovaStarter1\obj\Debug\XapCacheFile.xml
