@@ -87,60 +87,60 @@
     <Content Include="..\..\assets\www\error.html">
       <Link>www\error.html</Link>
     </Content>
-    <Resource Include="..\..\assets\www\image\button-dark-back.png">
+    <Content Include="..\..\assets\www\image\button-dark-back.png">
       <Link>www\image\button-dark-back.png</Link>
-    </Resource>
-    <Resource Include="..\..\assets\www\image\button-light-close.png">
+    </Content>
+    <Content Include="..\..\assets\www\image\button-light-close.png">
       <Link>www\image\button-light-close.png</Link>
-    </Resource>
-    <Resource Include="..\..\assets\www\image\button-light-wiki.png">
+    </Content>
+    <Content Include="..\..\assets\www\image\button-light-wiki.png">
       <Link>www\image\button-light-wiki.png</Link>
-    </Resource>
-    <Resource Include="..\..\assets\www\image\globe-bg.jpg">
+    </Content>
+    <Content Include="..\..\assets\www\image\globe-bg.jpg">
       <Link>www\image\globe-bg.jpg</Link>
-    </Resource>
-    <Resource Include="..\..\assets\www\image\icon.png">
+    </Content>
+    <Content Include="..\..\assets\www\image\icon.png">
       <Link>www\image\icon.png</Link>
-    </Resource>
-    <Resource Include="..\..\assets\www\image\logo.png">
+    </Content>
+    <Content Include="..\..\assets\www\image\logo.png">
       <Link>www\image\logo.png</Link>
-    </Resource>
-    <Resource Include="..\..\assets\www\image\select.png">
+    </Content>
+    <Content Include="..\..\assets\www\image\select.png">
       <Link>www\image\select.png</Link>
-    </Resource>
-    <Resource Include="..\..\assets\www\image\spinner.gif">
+    </Content>
+    <Content Include="..\..\assets\www\image\spinner.gif">
       <Link>www\image\spinner.gif</Link>
-    </Resource>
-    <Resource Include="..\..\assets\www\image\splash.png">
+    </Content>
+    <Content Include="..\..\assets\www\image\splash.png">
       <Link>www\image\splash.png</Link>
-    </Resource>
-    <Resource Include="..\..\assets\www\image\spr.png">
+    </Content>
+    <Content Include="..\..\assets\www\image\spr.png">
       <Link>www\image\spr.png</Link>
-    </Resource>
-    <Resource Include="..\..\assets\www\image\wmf.png">
+    </Content>
+    <Content Include="..\..\assets\www\image\wmf.png">
       <Link>www\image\wmf.png</Link>
-    </Resource>
-    <Resource Include="..\..\assets\www\image\ios\toolbar-back.png">
+    </Content>
+    <Content Include="..\..\assets\www\image\ios\toolbar-back.png">
       <Link>www\image\ios\toolbar-back.png</Link>
-    </Resource>
-    <Resource Include="..\..\assets\www\image\ios\toolbar-forward.png">
+    </Content>
+    <Content Include="..\..\assets\www\image\ios\toolbar-forward.png">
       <Link>www\image\ios\toolbar-forward.png</Link>
-    </Resource>
-    <Resource Include="..\..\assets\www\image\ios\toolbar-language.png">
+    </Content>
+    <Content Include="..\..\assets\www\image\ios\toolbar-language.png">
       <Link>www\image\ios\toolbar-language.png</Link>
-    </Resource>
-    <Resource Include="..\..\assets\www\image\ios\toolbar-nearby.png">
+    </Content>
+    <Content Include="..\..\assets\www\image\ios\toolbar-nearby.png">
       <Link>www\image\ios\toolbar-nearby.png</Link>
-    </Resource>
-    <Resource Include="..\..\assets\www\image\ios\toolbar-output.png">
+    </Content>
+    <Content Include="..\..\assets\www\image\ios\toolbar-output.png">
       <Link>www\image\ios\toolbar-output.png</Link>
-    </Resource>
-    <Resource Include="..\..\assets\www\image\ios\toolbar-settings.png">
+    </Content>
+    <Content Include="..\..\assets\www\image\ios\toolbar-settings.png">
       <Link>www\image\ios\toolbar-settings.png</Link>
-    </Resource>
-    <Resource Include="..\..\assets\www\image\ios\toolbar-sources.png">
+    </Content>
+    <Content Include="..\..\assets\www\image\ios\toolbar-sources.png">
       <Link>www\image\ios\toolbar-sources.png</Link>
-    </Resource>
+    </Content>
     <Content Include="..\..\assets\www\index.html">
       <Link>www\index.html</Link>
     </Content>
@@ -258,24 +258,24 @@
     <Content Include="..\..\assets\www\js\urlcache.js">
       <Link>www\js\urlcache.js</Link>
     </Content>
-    <Resource Include="..\..\assets\www\leaflet\images\layers.png">
+    <Content Include="..\..\assets\www\leaflet\images\layers.png">
       <Link>www\leaflet\images\layers.png</Link>
-    </Resource>
-    <Resource Include="..\..\assets\www\leaflet\images\marker-shadow.png">
+    </Content>
+    <Content Include="..\..\assets\www\leaflet\images\marker-shadow.png">
       <Link>www\leaflet\images\marker-shadow.png</Link>
-    </Resource>
-    <Resource Include="..\..\assets\www\leaflet\images\marker.png">
+    </Content>
+    <Content Include="..\..\assets\www\leaflet\images\marker.png">
       <Link>www\leaflet\images\marker.png</Link>
-    </Resource>
-    <Resource Include="..\..\assets\www\leaflet\images\popup-close.png">
+    </Content>
+    <Content Include="..\..\assets\www\leaflet\images\popup-close.png">
       <Link>www\leaflet\images\popup-close.png</Link>
-    </Resource>
-    <Resource Include="..\..\assets\www\leaflet\images\zoom-in.png">
+    </Content>
+    <Content Include="..\..\assets\www\leaflet\images\zoom-in.png">
       <Link>www\leaflet\images\zoom-in.png</Link>
-    </Resource>
-    <Resource Include="..\..\assets\www\leaflet\images\zoom-out.png">
+    </Content>
+    <Content Include="..\..\assets\www\leaflet\images\zoom-out.png">
       <Link>www\leaflet\images\zoom-out.png</Link>
-    </Resource>
+    </Content>
     <Content Include="..\..\assets\www\leaflet\leaflet-src.js">
       <Link>www\leaflet\leaflet-src.js</Link>
     </Content>
