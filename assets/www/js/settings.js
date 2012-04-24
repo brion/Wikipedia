@@ -20,8 +20,13 @@ window.appSettings = function() {
 				url:requestUrl,
 				dataType: 'json',
 				success:function(results) {
-					var allLocales = results.sitematrix;
-
+					console.log('sitematrix got: ' + JSON.stringify(results));
+					var allLocales;
+					if (results) {
+						allLocales = results.sitematrix;
+					} else {
+						allLocales = []; // hack
+					}
 					$.each(allLocales, function(key, value) {
 						// Because the JSON result from sitematrix is messed up
 						if(!isNaN(key)) {

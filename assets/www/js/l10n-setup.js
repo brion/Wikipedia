@@ -38,11 +38,13 @@ window.l10n = function() {
 		//console.log('loading messages for ' + lang);
 		lang = normalizeLanguageCode(lang);
 		var url = 'messages/messages-' + lang + '.properties';
+		console.log('Loading messages: ' + url);
 		$.ajax({
 			url: url,
 			async: false,
 			dataType: 'text',
 			success: function(data) {
+				console.log('success loading ' + url);
 				try {
 					var messages = propertiesFileReader.parse(data);
 				} catch (e) {
@@ -56,6 +58,7 @@ window.l10n = function() {
 				callback(true);
 			},
 			error: function(xhr, status, err) {
+				console.log('failed to load ' + url + ': ' + status + '; ' + err);
 				// We seem to get "success" on file not found, which feels wrong...
 				// We kinda expect to get 404 errors or similar?
 				callback(false);
