@@ -18,9 +18,9 @@ window.appSettings = function() {
 			$.ajax({
 				type:'GET',
 				url:requestUrl,
-				dataType: 'json',
+				dataType: 'text', // hack hack hack does this work only on winphone7?
 				success:function(results) {
-					console.log('sitematrix got: ' + JSON.stringify(results));
+					console.log('sitematrix got: ' + results);
 					var allLocales;
 					if (results) {
 						allLocales = results.sitematrix;
