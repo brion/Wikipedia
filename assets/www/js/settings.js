@@ -16,7 +16,7 @@ window.appSettings = function() {
 
 		if(locales.length == 0) {
 			var dataType = 'json';
-			if ($('<html>').hasClass('winphone')) {
+			if ($('html').hasClass('winphone')) {
 				// Not sure why, but on Windows Phone if we ask for text we get JSON.
 				// MYSTERIOUS
 				dataType = 'text';
