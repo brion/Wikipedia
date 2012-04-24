@@ -15,10 +15,16 @@ window.appSettings = function() {
 		}
 
 		if(locales.length == 0) {
+			var dataType = 'json';
+			if ($('<html>').hasClass('winphone')) {
+				// Not sure why, but on Windows Phone if we ask for text we get JSON.
+				// MYSTERIOUS
+				dataType = 'text';
+			}
 			$.ajax({
 				type:'GET',
 				url:requestUrl,
-				dataType: 'text', // hack hack hack does this work only on winphone7?
+				dataType: dataType,
 				success:function(results) {
 					console.log('sitematrix got: ' + results);
 					var allLocales;
