@@ -53,6 +53,10 @@ Lawnchair.adapter('dom', (function() {
     
         // ensure we are in an env with localStorage 
         valid: function () {
+			// hack to reinit
+			console.log('storage is ' + storage);
+			storage = window.localStorage;
+			console.log('window.localStorage is ' + window.localStorage);
             return !!storage 
         },
 
