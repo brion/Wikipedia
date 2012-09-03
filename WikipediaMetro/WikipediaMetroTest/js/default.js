@@ -426,6 +426,11 @@
                     }
                 } else if (detail.kind === Windows.ApplicationModel.Activation.ActivationKind.search) {
                     doSearch(state.current().lang, detail.queryText);
+                } else if (detail.kind === Windows.ApplicationModel.Activation.ActivationKind.shareTarget) {
+                    detail.shareOperation.data.getTextAsync().done(function (text) {
+                        doSearch(state.current().lang, text);
+                        detail.shareOperation.reportCompleted();
+                    });
                 }
                 complete();
             });
