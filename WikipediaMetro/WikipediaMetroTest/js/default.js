@@ -431,6 +431,20 @@
                         doSearch(state.current().lang, text);
                         detail.shareOperation.reportCompleted();
                     });
+                } else if (detail.kind === Windows.ApplicationModel.Activation.ActivationKind.protocol) {
+                    var args = detail.uri.queryParsed;
+                    var lang = state.current().lang;
+                    var searchTarget = null;
+                    args.forEach(function (item) {
+                        if (item.name == "search") {
+                            searchTarget = item.value;
+                        }
+                    });
+                    if (searchTarget) {
+                        doSearch(lang, searchTarget);
+                    } else {
+                        doSearch(lang, detail.uri.path);
+                    }
                 }
                 complete();
             });

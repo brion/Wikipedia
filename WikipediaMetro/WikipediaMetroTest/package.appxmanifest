@@ -20,8 +20,14 @@
         <SplashScreen Image="images\splashscreen.png" />
       </VisualElements>
       <Extensions>
+        <Extension Category="windows.protocol">
+          <Protocol Name="wikipedia">
+            <Logo>win8-small-tile.png</Logo>
+            <DisplayName>Wikipedia</DisplayName>
+          </Protocol>
+        </Extension>
         <Extension Category="windows.search" />
-        <Extension Category="windows.shareTarget">
+        <Extension Category="windows.shareTarget" StartPage="target.html">
           <ShareTarget>
             <DataFormat>Text</DataFormat>
           </ShareTarget>
