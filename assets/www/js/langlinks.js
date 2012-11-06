@@ -14,6 +14,7 @@ window.languageLinks = function() {
 		var req = page.requestLangLinks().done(function(langLinks) {
 			var template = templates.getTemplate("language-links-template");
 			app.getWikiMetadata().done(function(wikis) {
+				/*
 				$.each(langLinks, function(i, link) {
 					link.dir = l10n.isLangRTL(link.lang) ? "rtl" : "ltr";
 					link.langName = wikis[link.lang].name;
@@ -29,6 +30,28 @@ window.languageLinks = function() {
 				$('#langlinks').localize().show();
 
 				chrome.setupScrolling('#langlinks .scroller');
+				*/
+				chrome.hideOverlays();
+				chrome.hideContent();
+				chrome.hideSpinner();
+
+				var langs = [],
+					langMap = {};
+				$.each(langLinks, function(i, link) {
+					langs.push(link.lang);
+					langMap[link.lang] = link.title;
+				});
+				$( '<div/>' ).uls( {
+					onSelect : function( language ) {
+						chrome.hideContent();
+						chrome.showSpinner();
+						app.navigateTo(langMap[language], language);
+					},
+					top: '0px', // can't use 0
+					left: '0px',
+					quickList: langs
+					//languages: langs
+				} ).click();
 			});
 		}).fail(function(err, textStatus) {
 			if(textStatus === "abort") {
