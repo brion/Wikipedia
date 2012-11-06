@@ -182,10 +182,7 @@ window.chrome = function() {
 				}
 				return false;
 			});
-			$('#searchParam').ime({
-				imePath: ROOT_URL + 'jquery.ime/',
-				//languages: ['mr']
-			});
+			chrome.initIME();
 			$('#searchParam').bind('keypress', function(event) {
 				if(event.keyCode == 13)
 				{
@@ -217,6 +214,20 @@ window.chrome = function() {
 			handleHeaderTimeout();
 		});
 
+	}
+
+	var imeInitialized = false;
+	function initIME() {
+		var lang = preferencesDB.get('language');
+		if (imeInitialized) {
+			$.ime.preferences.setLanguage(lang);
+		} else {
+			$('#searchParam').ime({
+				imePath: ROOT_URL + 'jquery.ime/',
+				languages: [lang]
+			});
+			imeInitialized = true;
+		}
 	}
 
 	// Bind to links inside reference reveal, handle them properly
@@ -433,6 +444,7 @@ window.chrome = function() {
 		initContentLinkHandlers: initContentLinkHandlers,
 		showHeader: null, // initialized inside handleHeaderTimeout
 		hideHeader: null,  // initialized inside handleHeaderTimeout
-		loadCSS: loadCSS
+		loadCSS: loadCSS,
+		initIME: initIME
 	};
 }();
