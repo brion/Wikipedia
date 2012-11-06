@@ -1,3 +1,6 @@
 [submodule "assets/www/MobileFrontend"]
 	path = assets/www/MobileFrontend
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/MobileFrontend.git
+[submodule "assets/www/jquery.uls"]
+	path = assets/www/jquery.uls
+	url = https://github.com/wikimedia/jquery.uls.git
