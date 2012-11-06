@@ -181,7 +181,12 @@ window.chrome = function() {
 					search.performSearch($("#searchParam").val(), false);
 				}
 				return false;
-			}).bind('keypress', function(event) {
+			});
+			$('#searchParam').ime({
+				imePath: ROOT_URL + 'jquery.ime/',
+				//languages: ['mr']
+			});
+			$('#searchParam').bind('keypress', function(event) {
 				if(event.keyCode == 13)
 				{
 					$("#searchParam").blur();
