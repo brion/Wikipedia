@@ -849,6 +849,9 @@ body[dir=rtl] .titlebarItem {
 }
 
 
+#langSelector {
+	display: none;
+}
 
 .uls-menu {
 	position: absolute;

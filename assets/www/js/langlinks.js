@@ -43,11 +43,18 @@ window.languageLinks = function() {
 					langs[link.lang] = link.name;
 					langMap[link.lang] = link.title;
 				});
+				// drop the old ULS so we can reinitialize
+				$( '.uls-menu' ).remove();
+				$( '#langSelector' ).replaceWith( $( '<div id="langSelector"></div>' ) );
+
 				$( '#langSelector' ).uls( {
 					onSelect : function( language ) {
-						chrome.hideContent();
+						chrome.showContent();
 						chrome.showSpinner();
 						app.navigateTo(langMap[language], language);
+					},
+					onCancel: function() {
+						chrome.showContent();
 					},
 					top: '0px', // can't use 0
 					left: '0px',
