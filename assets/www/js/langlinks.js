@@ -58,7 +58,8 @@ window.languageLinks = function() {
 					},
 					top: '0px', // can't use 0
 					left: '0px',
-					languages: langs
+					languages: langs,
+					lazyload: false
 				} );
 				$( '#langSelector' ).click();
 			});

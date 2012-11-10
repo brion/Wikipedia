@@ -862,3 +862,14 @@ body[dir=rtl] .titlebarItem {
 	width: 100%;
 	height: 100%;
 }
+.uls-language-list {
+	-webkit-overflow-scrolling: touch;
+}
+.android-2 .uls-menu {
+	height: auto;
+}
+.android-2 .uls-language-list {
+	height: auto;
+	overflow-y: none;
+}
+
