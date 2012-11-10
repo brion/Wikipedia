@@ -9,6 +9,8 @@ window.languageLinks = function() {
 		app.navigateTo(title, lang);
 	}
 
+	var initialized = false;
+
 	function showLangLinks(page) {
 		chrome.showSpinner();
 		var req = page.requestLangLinks().done(function(langLinks) {
@@ -35,13 +37,13 @@ window.languageLinks = function() {
 				chrome.hideContent();
 				chrome.hideSpinner();
 
-				var langs = [],
+				var langs = {},
 					langMap = {};
 				$.each(langLinks, function(i, link) {
-					langs.push(link.lang);
+					langs[link.lang] = link.name;
 					langMap[link.lang] = link.title;
 				});
-				$( '<div/>' ).uls( {
+				$( '#langSelector' ).uls( {
 					onSelect : function( language ) {
 						chrome.hideContent();
 						chrome.showSpinner();
@@ -49,9 +51,9 @@ window.languageLinks = function() {
 					},
 					top: '0px', // can't use 0
 					left: '0px',
-					quickList: langs
-					//languages: langs
-				} ).click();
+					languages: langs
+				} );
+				$( '#langSelector' ).click();
 			});
 		}).fail(function(err, textStatus) {
 			if(textStatus === "abort") {
