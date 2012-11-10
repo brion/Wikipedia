@@ -872,4 +872,9 @@ body[dir=rtl] .titlebarItem {
 	height: auto;
 	overflow-y: none;
 }
-
+#map-block {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	width: 320px;
+}
