@@ -172,6 +172,7 @@ function updateMenuState() {
 		'go-forward': function() { chrome.goForward(); },
 		'select-text': function() { selectText(); },
 		'view-settings': function() { appSettings.showSettings(); },
+		'random-article': function() { app.navigateToRandom(); }
 	};
 	$('#appMenu command').each(function() {
 		var $command = $(this),

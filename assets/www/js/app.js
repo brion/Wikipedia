@@ -247,6 +247,19 @@ window.app = function() {
 			additional: 'android' // System info
 		}, preferencesDB.get('language'));
 	}
+
+	function navigateToRandom() {
+		makeAPIRequest({
+			action: 'query',
+			list: 'random',
+			rnnamespace: 0,
+			rnlimit: 1,
+			cacheBreaker: Math.random() // seems to affect cell network more?
+		}).done( function( data ) {
+			navigateTo( data.query.random[0].title );
+		});
+	}
+
 	var exports = {
 		setFontSize: setFontSize,
 		setTheme: setTheme,
@@ -268,7 +281,8 @@ window.app = function() {
 		curPage: null,
 		navigateTo: navigateTo,
 		getWikiMetadata: getWikiMetadata,
-		loadMainPage: loadMainPage
+		loadMainPage: loadMainPage,
+		navigateToRandom: navigateToRandom
 	};
 
 	return exports;
