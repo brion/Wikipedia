@@ -1,5 +1,5 @@
 (function() {
-	window.Page = function( title, rawJSON, lang, isCompletePage ) {
+	window.Page = function( title, rawJSON, lang, isCompletePage, variant ) {
 		var lead = {};
 		var sections = [];
 		var lastCollapsibleSection = {subSections: []};
@@ -52,16 +52,17 @@
 		this.sections = sections;
 		this.lang = lang;
 		this.isCompletePage = isCompletePage;
+		this.variant = variant;
 	};
 
-	Page.deserializeFrom = function( data ) {
-		var page = new Page( data.title, {}, data.lang, true);
+	Page.deserializeFrom = function( data, variant ) {
+		var page = new Page( data.title, {}, data.lang, true, variant );
 		page.lead = data.lead;
 		page.sections = data.sections;
 		return page;
 	}
 
-	Page.requestFromTitle = function(title, lang, isCompletePage) {
+	Page.requestFromTitle = function(title, lang, isCompletePage, variant) {
 		var sections;
 		if( !isCompletePage ) {
 			sections = "0|references";
@@ -75,10 +76,11 @@
 			prop: 'sections|text',
 			sections: sections,
 			sectionprop: 'level|line',
-			noheadings: 'yes'
+			noheadings: 'yes',
+			variant: variant
 		}, lang, {
 			dataFilter: function(data) {
-				return new Page( title, JSON.parse( data ), lang, isCompletePage );
+				return new Page( title, JSON.parse( data ), lang, isCompletePage, variant );
 			}
 		});	
 	};

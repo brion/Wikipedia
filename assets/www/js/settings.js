@@ -67,6 +67,7 @@ window.appSettings = function() {
 			}
 		});
 		$("#fontSizeSelector").val(preferencesDB.get("fontSize")).change(onFontSizeChanged);
+		$( "#variantSelector" ).val( preferencesDB.get( "variant" ) ).change( onVariantChanged );
 		$( "#themeSelector" ).val( preferencesDB.get( "theme" ) ).change( onThemeChanged );
 		$("#aboutPageLabel").click(function () {
 			aboutPage();
@@ -96,6 +97,12 @@ window.appSettings = function() {
 	function onFontSizeChanged() {
 		var selectedFontSize = $(this).val();
 		app.setFontSize(selectedFontSize);
+		chrome.showContent();
+	}
+
+	function onVariantChanged() {
+		var variant = $( this ).val();
+		app.setLanguageVariant( variant );
 		chrome.showContent();
 	}
 

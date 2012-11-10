@@ -69,7 +69,7 @@ window.app = function() {
 		var d = $.Deferred();
 
 		function doRequest() {
-			var req = Page.requestFromTitle( title, language, isCompletePage ).done( function( page ) {
+			var req = Page.requestFromTitle( title, language, isCompletePage, preferencesDB.get('variant') ).done( function( page ) {
 				if(page === null) {
 					setErrorPage(404);
 				}
@@ -148,6 +148,12 @@ window.app = function() {
 			curTheme = name;
 			preferencesDB.set( 'theme', name );
 		} );
+	}
+
+	function setLanguageVariant( variant ) {
+		// @fixme validate blah blah
+		// @fixme save per language?
+		preferencesDB.set( 'variant', variant );
 	}
 
 	function navigateTo(title, lang, options) {
@@ -247,6 +253,7 @@ window.app = function() {
 			additional: 'android' // System info
 		}, preferencesDB.get('language'));
 	}
+	
 	var exports = {
 		setFontSize: setFontSize,
 		setTheme: setTheme,
@@ -268,7 +275,8 @@ window.app = function() {
 		curPage: null,
 		navigateTo: navigateTo,
 		getWikiMetadata: getWikiMetadata,
-		loadMainPage: loadMainPage
+		loadMainPage: loadMainPage,
+		setLanguageVariant: setLanguageVariant
 	};
 
 	return exports;
