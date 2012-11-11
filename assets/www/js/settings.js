@@ -48,9 +48,20 @@ window.appSettings = function() {
 	}
 
 	function renderSettings() {
+		var variantList = function() {
+			var variantArray = variants.getVariants( preferencesDB.get("language") ),
+				list = [];
+			$.each( variantArray, function(i, item) {
+				list.push({
+					code: item
+				});
+			});
+			return list;
+		}();
 		var template = templates.getTemplate('settings-page-template');
 		$("#settingsList").html( template.render( {
 			languages: locales,
+			variants: variantList,
 			fontSizes: fontSizes,
 			themes: themes,
 			aboutPage: aboutPage

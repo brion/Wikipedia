@@ -52,6 +52,7 @@
 	<script type="text/javascript" charset="utf-8" src="js/settings.js"></script>
 	<script type="text/javascript" charset="utf-8" src="js/langlinks.js"></script>
 	<script type="text/javascript" charset="utf-8" src="js/menu.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/variants.js"></script>
 	
 	<!-- MobileFrontend -->
 	<script type="text/javascript" charset="utf-8" src="js/mobilefrontend.js"></script>
@@ -90,10 +91,9 @@
 			<div class="item">
 				<label for="variantSelector"><msg key="settings-variant-label"></msg></label>
 				<select id='variantSelector'>
-					<option value="zh-cn">zh-cn</option>
-					<option value="zh-hk">zh-hk</option>
-					<option value="zh-sg">zh-sg</option>
-					<option value="zh-tw">zh-tw</option>
+					{{#variants}}
+						<option value="{{code}}">{{code}}</option>
+					{{/variants}}
 				</select>
 			</div>
 
