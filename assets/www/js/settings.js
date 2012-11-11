@@ -104,6 +104,7 @@ window.appSettings = function() {
 		var variant = $( this ).val();
 		app.setLanguageVariant( variant );
 		chrome.showContent();
+		app.reload();
 	}
 
 	function onThemeChanged() {

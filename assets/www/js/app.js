@@ -156,6 +156,12 @@ window.app = function() {
 		preferencesDB.set( 'variant', variant );
 	}
 
+	function reload() {
+		navigateTo( app.curPage.title, undefined, {
+			updateHistory: false
+		} );
+	}
+
 	function navigateTo(title, lang, options) {
 		var d = $.Deferred();
 		var options = $.extend( {cache: false, updateHistory: true, isCompletePage: false}, options || {} );
@@ -276,7 +282,8 @@ window.app = function() {
 		navigateTo: navigateTo,
 		getWikiMetadata: getWikiMetadata,
 		loadMainPage: loadMainPage,
-		setLanguageVariant: setLanguageVariant
+		setLanguageVariant: setLanguageVariant,
+		reload: reload
 	};
 
 	return exports;
