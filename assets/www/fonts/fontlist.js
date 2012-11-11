@@ -9,103 +9,103 @@
 	var config = {
 		fonts: {
 			"Lohit Assamese": {
-				woff: "Beng/Lohit-Assamese.woff",
+				ttf: "Beng/Lohit-Assamese.ttf",
 				version: "2.5.1"
 			},
 
 			"Lohit Nepali": {
-				woff: "Deva/Lohit-Nepali.woff",
+				ttf: "Deva/Lohit-Nepali.ttf",
 				version: "2.5.1.1"
 			},
 
 			AbyssinicaSIL: {
-				woff: "Ethi/AbyssinicaSIL-R.woff",
+				ttf: "Ethi/AbyssinicaSIL-R.ttf",
 				version: "1.2"
 			},
 
 			"Lohit Gujarati": {
-				woff: "Gujr/Lohit-Gujarati.woff",
+				ttf: "Gujr/Lohit-Gujarati.ttf",
 				version: "2.5.1"
 			},
 
 			KhmerOS: {
-				woff: "Khmr/KhmerOS.woff",
+				ttf: "Khmr/KhmerOS.ttf",
 				version: "1.10"
 			},
 
 			KhmerOSbattambang: {
-				woff: "Khmr/KhmerOSbattambang.woff",
+				ttf: "Khmr/KhmerOSbattambang.ttf",
 				version: "1.10"
 			},
 
 			"Lohit Kannada": {
-				woff: "Knda/Lohit-Kannada.woff",
+				ttf: "Knda/Lohit-Kannada.ttf",
 				version: "2.5.1"
 			},
 
 			Meera: {
-				woff: "Mlym/Meera.woff",
+				ttf: "Mlym/Meera.ttf",
 				version: "5.0.1"
 			},
 
 			"Lohit Oriya": {
-				woff: "Orya/Lohit-Oriya.woff",
+				ttf: "Orya/Lohit-Oriya.ttf",
 				version: "2.5.1"
 			},
 
 			Pagul: {
-				woff: "Saur/Pagul.woff",
+				ttf: "Saur/Pagul.ttf",
 				version: "1.0"
 			},
 
 			"Lohit Tamil": {
-				woff: "Taml/Lohit-Tamil.woff",
+				ttf: "Taml/Lohit-Tamil.ttf",
 				version: "2.5.1"
 			},
 
 			"Lohit Tamil Classical": {
-				woff: "Taml/Lohit-Tamil-Classical.woff",
+				ttf: "Taml/Lohit-Tamil-Classical.ttf",
 				version: "2.5.1.1"
 			},
 
 			Thendral: {
-				woff: "Taml/ThendralUni.woff",
+				ttf: "Taml/ThendralUni.ttf",
 				version: "1.0"
 			},
 
 			Thenee: {
-				woff: "Taml/TheneeUni.woff",
+				ttf: "Taml/TheneeUni.ttf",
 				version: "1.0"
 			},
 
 			"Lohit Telugu": {
-				woff: "Telu/Lohit-Telugu.woff",
+				ttf: "Telu/Lohit-Telugu.ttf",
 				version: "2.5.1"
 			},
 
 			"Lohit Punjabi": {
-				woff: "Guru/Lohit-Punjabi.woff",
+				ttf: "Guru/Lohit-Punjabi.ttf",
 				version: "2.5.1"
 			},
 
 			"Siyam Rupali": {
-				woff: "Beng/SiyamRupali.woff",
+				ttf: "Beng/SiyamRupali.ttf",
 				version: "1.070"
 			},
 			"Jomolhari": {
-				woff: "Tibt/Jomolhari.woff",
+				ttf: "Tibt/Jomolhari.ttf",
 				version: "0.003"
 			},
 			"Saweri": {
-				woff: "Bugi/saweri.woff",
+				ttf: "Bugi/saweri.ttf",
 				version: "2"
 			},
 			"Akkadian": {
-				woff: "Xsux/Akkadian.woff",
+				ttf: "Xsux/Akkadian.ttf",
 				version: "2.56"
 			},
 			"TharLon": {
-				woff: "Mymr/TharLon.woff",
+				ttf: "Mymr/TharLon.ttf",
 				version: "1.0"
 			}
 		},
@@ -142,11 +142,11 @@
 		console.log('language: ' + language);
 		var font = config.languages[language][0];
 		console.log('font: ' + font);
-		var path = 'fonts/' + config.fonts[font].woff;
+		var path = 'fonts/' + config.fonts[font].ttf;
 		var style =
 			"@font-face {" +
 				"font-family: \"" + font + "\";" +
-				"src: url(" + path + ");" +
+				"src: url(" + path + ") format(truetype);" +
 			"}\n" +
 			"#main[lang=" + language + "] {" +
 				"font-family: \"" + font + "\";" +
