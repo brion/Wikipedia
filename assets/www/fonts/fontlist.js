@@ -3,7 +3,7 @@
  * First font is the default font for the language
  */
 
-( function ( $, mw ) {
+( function ( $ ) {
 	"use strict";
 
 	var config = {
@@ -121,12 +121,10 @@
 			bug: [ "Saweri" ],
 			dz:  [ "Jomolhari" ],
 			gu:  [ "Lohit Gujarati" ],
-			hbo: [ "Taamey Frank CLM" ],
 			km:  [ "KhmerOSbattambang" ],
 			kn:  [ "Lohit Kannada" ],
 			mak: [ "Saweri" ],
 			ml:  [ "Meera" ],
-			mr:  [ "Lohit Marathi" ],
 			my:  [ "TharLon" ],
 			ne:  [ "Lohit Nepali" ],
 			or:  [ "Lohit Oriya" ],
@@ -140,6 +138,30 @@
 		}
 	};
 
-	$.extend( mw.webfonts.config, config );
+	function makeStyle(language) {
+		console.log('language: ' + language);
+		var font = config.languages[language][0];
+		console.log('font: ' + font);
+		var path = 'fonts/' + config.fonts[font].woff;
+		var style =
+			"@font-face {" +
+				"font-family: \"" + font + "\";" +
+				"src: url(" + path + ");" +
+			"}\n" +
+			"#main[lang=" + language + "] {" +
+				"font-family: \"" + font + "\";" +
+				"color: red;" +
+			"}\n";
+		return style;
+	}
 
-} )( jQuery, mediaWiki );
+	function initStyles() {
+		var styles = '';
+		$.each( config.languages, function( lang, fonts ) {
+			styles += makeStyle( lang );
+		});
+		$('<style>').attr('type', 'text/css').text(styles).appendTo('head');
+	}
+	
+	$(initStyles);
+} )( jQuery );

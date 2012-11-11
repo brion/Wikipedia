@@ -52,6 +52,7 @@ window.chrome = function() {
 
 	function renderHtml(page) {
 		loadSiteCSS( page.lang );
+		$( '#main' ).attr( 'lang', page.lang );
 		$('base').attr('href', page.getCanonicalUrl());
 
 		if(l10n.isLangRTL(page.lang)) {
