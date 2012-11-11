@@ -109,7 +109,8 @@
 			prop: 'sections|text',
 			sections: sectionsList.join( '|' ),
 			sectionprop: 'level|line',
-			noheadings: 'yes'
+			noheadings: 'yes',
+			variant: this.variant
 		}, this.lang, {
 			dataFilter: function(text) {
 				var data = JSON.parse( text );
