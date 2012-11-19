@@ -70,7 +70,9 @@ window.app = function() {
 
 		function doRequest() {
 			var req = Page.requestFromTitle( title, language, isCompletePage ).done( function( page ) {
+				console.log('XHR SUCCESS!);
 				if(page === null) {
+					console.log('XHR got 404!);
 					setErrorPage(404);
 				}
 				setCurrentPage(page);
@@ -81,6 +83,7 @@ window.app = function() {
 				}
 				d.resolve(page);
 			}).fail(function(xhr, textStatus, errorThrown) {
+				console.log('XHR ERROR! ' + textStatus + ' / ' + errorThrown);
 				if(textStatus === "abort") {
 					// User cancelled action. Do nothing!
 					console.log("User cancelled action!");
