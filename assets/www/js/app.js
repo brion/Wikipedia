@@ -70,9 +70,9 @@ window.app = function() {
 
 		function doRequest() {
 			var req = Page.requestFromTitle( title, language, isCompletePage ).done( function( page ) {
-				console.log('XHR SUCCESS!);
+				console.log('XHR SUCCESS!');
 				if(page === null) {
-					console.log('XHR got 404!);
+					console.log('XHR got 404!');
 					setErrorPage(404);
 				}
 				setCurrentPage(page);
