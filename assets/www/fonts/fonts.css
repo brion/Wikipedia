@@ -1,0 +1,8 @@
+@font-face {
+	font-family: 'Lohit Kannada';
+	src: url('Knda/Lohit-Kannada.ttf');
+}
+
+[lang=kn] {
+	font-family: 'Lohit Kannada' !important;
+}
